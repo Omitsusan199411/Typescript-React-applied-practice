@@ -11,7 +11,7 @@ type TodoType = {
 };
 
 export const App = () => {
-  // useStateをany型で指定
+  // useStateを配列型で指定
   const [todos, setTodos] = useState<Array<TodoType>>([]);
   const onClickFetchData = () => {
     axios
@@ -24,7 +24,11 @@ export const App = () => {
     <div className="App">
       <button onClick={onClickFetchData}>データ取得</button>
       {todos.map((todo) => (
-        <Todo title={todo.title} userid={todo.userId} />
+        <Todo
+          title={todo.title}
+          userId={todo.userId}
+          completed={todo.completed}
+        />
       ))}
     </div>
   );
