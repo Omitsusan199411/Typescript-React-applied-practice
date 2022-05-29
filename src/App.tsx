@@ -3,7 +3,14 @@ import React, { useState } from "react";
 import { Todo } from "./Todo";
 import { TodoType } from "./types/todo";
 import { Text } from "./Text";
+import { UserProfile } from "./UserProfile";
+import { User } from "./types/user";
 import "./styles.css";
+
+const user: User = {
+  name: "まこと",
+  hobbies: ["映画", "ゲーム"]
+};
 
 export const App = () => {
   // useStateを配列型で指定
@@ -17,6 +24,7 @@ export const App = () => {
   };
   return (
     <div className="App">
+      <UserProfile user={user} />
       <Text color={"red"} fontSize={"20px"} />
       <button onClick={onClickFetchData}>データ取得</button>
       {todos.map((todo) => (
